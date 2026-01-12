@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erzsébet Bertók - Kontakt</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', 'Georgia', serif;
+            background: linear-gradient(135deg, #B5943A 0%, #393F4B 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .card {
+            background: #FFFFFF;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(57, 63, 75, 0.3);
+            padding: 40px 30px;
+            max-width: 420px;
+            width: 100%;
+            text-align: center;
+            border: 3px solid #B5943A;
+            position: relative;
+        }
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 3px;
+            background: #B5943A;
+            border-radius: 0 0 20px 20px;
+        }
+        .name {
+            font-size: 32px;
+            font-weight: 600;
+            color: #393F4B;
+            margin-bottom: 5px;
+            margin-top: 20px;
+            letter-spacing: 1px;
+        }
+        .title {
+            font-size: 15px;
+            color: #B5943A;
+            margin-bottom: 25px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .divider {
+            height: 2px;
+            background: linear-gradient(to right, transparent, #B5943A, transparent);
+            margin: 25px 0;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin: 16px 0;
+            padding: 14px 16px;
+            background: #FFFFFF;
+            border-left: 4px solid #B5943A;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .contact-item:hover {
+            background: #F9F7F2;
+            transform: translateX(5px);
+            border-left: 4px solid #393F4B;
+        }
+        .icon {
+            font-size: 28px;
+            margin-right: 16px;
+            width: 40px;
+            flex-shrink: 0;
+        }
+        .contact-text {
+            text-align: left;
+            flex: 1;
+        }
+        .label {
+            font-size: 11px;
+            color: #B5943A;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .value {
+            font-size: 15px;
+            color: #393F4B;
+            font-weight: 500;
+            margin-top: 3px;
+        }
+        .buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        button {
+            flex: 1;
+            min-width: 140px;
+            padding: 14px 16px;
+            border: 2px solid #B5943A;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .btn-contact {
+            background: #B5943A;
+            color: #FFFFFF;
+        }
+        .btn-contact:hover {
+            background: #393F4B;
+            border-color: #393F4B;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(185, 148, 58, 0.3);
+        }
+        .btn-map {
+            background: #FFFFFF;
+            color: #B5943A;
+        }
+        .btn-map:hover {
+            background: #393F4B;
+            color: #B5943A;
+            border-color: #393F4B;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(57, 63, 75, 0.3);
+        }
+        .footer-decoration {
+            margin-top: 25px;
+            height: 4px;
+            background: linear-gradient(to right, transparent, #B5943A, #393F4B, #B5943A, transparent);
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="name">Bertók Erzsébet</div>
+        <div class="title">Társasházkezelő és Közös Képviselő</div>
+        
+        <div class="divider"></div>
+        
+        <div class="contact-item" onclick="callPhone()">
+            <div class="icon">📱</div>
+            <div class="contact-text">
+                <div class="label">Telefonszám</div>
+                <div class="value">+36 30 850 9809</div>
+            </div>
+        </div>
+        
+        <div class="contact-item" onclick="sendEmail()">
+            <div class="icon">📧</div>
+            <div class="contact-text">
+                <div class="label">E-mail</div>
+                <div class="value">mb.erzsebet.thk@gmail.com</div>
+            </div>
+        </div>
+        
+        <div class="contact-item" onclick="openMap()">
+            <div class="icon">📍</div>
+            <div class="contact-text">
+                <div class="label">Cím</div>
+                <div class="value">Bercsényi u. 4. 1/1<br>Nyíregyháza, 4400</div>
+            </div>
+        </div>
+        
+        <div class="divider"></div>
+        
+        <div class="buttons">
+            <button class="btn-contact" onclick="saveContact()">Mentés</button>
+            <button class="btn-map" onclick="openMap()">Térkép</button>
+        </div>
+        
+        <div class="footer-decoration"></div>
+    </div>
+
+    <script>
+        function callPhone() {
+            window.location.href = 'tel:+36308509809';
+        }
+        
+        function sendEmail() {
+            window.location.href = 'mailto:mb.erzsebet.thk@gmail.com';
+        }
+        
+        function openMap() {
+            window.open('https://maps.app.goo.gl/mmf4oi69YzoL1ohN6', '_blank');
+        }
+        
+        function saveContact() {
+            const vcard = `BEGIN:VCARD
+VERSION:3.0
+N:Bertók;Bertók;;;
+FN:Ersébet Bertók
+TEL;TYPE=CELL:+36308509809
+EMAIL:mb.erzsebet.thk@gmail.com
+ADR:;;Bercsényi utca 4. 1/1;Nyíregyháza;;4400;Hungary
+NOTE:Társasházkezelő és Közös képviselő
+URL:https://maps.app.goo.gl/mmf4oi69YzoL1ohN6
+END:VCARD`;
+            
+            const blob = new Blob([vcard], { type: 'text/vcard' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'erzsebet_bertok.vcf';
+            a.click();
+            window.URL.revokeObjectURL(url);
+        }
+    </script>
+</body>
+</html>
